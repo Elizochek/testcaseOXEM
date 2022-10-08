@@ -1,0 +1,23 @@
+body {
+    font-family: 'Courier New', Courier, monospace;}
+@font-face {
+    font-family: 'Nekst';
+    src: local('Nekst Bold'),
+        url("./fonts/Nekst-Bold.woff2") format('woff2');
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Nekst';
+    src: local('Nekst Black'),
+        url("./fonts/Nekst-Black.woff2") format('woff2');
+    font-style: normal;}
+    @font-face {
+      font-family: 'Giroy';
+      src: local('Giroy-Regular'),
+          url("./fonts/Gilroy-Regular.woff2") format('woff2');
+      font-style: normal;}
+  
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

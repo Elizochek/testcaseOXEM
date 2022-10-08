@@ -1,0 +1,49 @@
+@import "/src/styles.scss";
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    outline: 0;
+    min-width:45%;
+    height: 68px;
+    background: #FF9514;
+    border:1px solid #FF9514 ;
+    border-radius: 40px;
+    color:white;
+    font-size: 30px;
+    padding: 12px 24px;
+// @media screen and (max-width:$phonemax) and (min-width:$phonemin)
+//     { min-width:80%;}
+   
+
+    &:hover {
+        background: #111111;
+        border:1px solid #111111;
+    }
+    &:disabled {
+        background:#FF9514;
+        border:1px solid #FF9514;
+        opacity:40%;
+    }
+    &:active {
+        background: #575757;
+        border:1px solid #575757;}
+
+    .spinner {
+        width: 0;
+        overflow: hidden;
+        transition: 0.3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+
+        &.active {
+            width: 30px;
+            margin-right: 10px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

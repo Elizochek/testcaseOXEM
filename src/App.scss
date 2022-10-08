@@ -1,0 +1,40 @@
+@import "./styles.scss";
+.App {
+  display: grid; 
+  grid-template-rows: 120px;
+  align-content:center;
+  align-items: center;
+  justify-items:stretch;
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  grid-template-areas: 
+    "name name name"
+    ". . ."
+    ". . ."; 
+  width: 90vw;
+  height:90vh;
+  margin:50px 30px;
+    
+
+// @media screen and (max-width:$notebookmax){
+//   display:flex;
+//   flex-direction:row;
+//   flex-wrap:wrap;
+// }}
+.name {
+  grid-area:name;
+  font-family:"Nekst";
+
+}
+
+
+.test {
+  border:2px solid grey;
+  min-width: 280px;
+  height: 119px;
+  // @media screen and (max-width:$notebookmax){
+  //   width:45%
+  // }
+  
+  }}
