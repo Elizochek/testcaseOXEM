@@ -36,7 +36,7 @@ const buttontext= loading?" ": "Оставить заявку"
   return (
 
     <div className="App"> 
-    <div className="name"> <h1> Рассчитайте стоимость автомобиля в лизинг </h1></div>
+    <div className="name">Рассчитайте стоимость автомобиля в лизинг</div>
       <Input 
      name="Стоимость автомобиля" 
      type="range" 
@@ -45,7 +45,8 @@ const buttontext= loading?" ": "Оставить заявку"
      onChange={handlePrice} 
      step="10000" 
      test="₽"
-     placeholder={price}/>
+     placeholder={price}
+     disabled={loading}/>
       <Input 
       name="Первоначальный взнос" 
       type="range" 
@@ -54,7 +55,8 @@ const buttontext= loading?" ": "Оставить заявку"
       onChange={handlePay} 
       step="1000" 
       test={per}
-      placeholder={pay}/>
+      placeholder={pay}
+      disabled={loading}/>
       
       <Input 
       name="Срок лизинга" 
@@ -64,14 +66,15 @@ const buttontext= loading?" ": "Оставить заявку"
       onChange={handleLiz} 
       step="1" 
       test="мес."
-      placeholder={liz}/>
+      placeholder={liz}
+      disabled={loading}/>
         <div className="test"> 
         <p> Сумма договора лизинга </p>
-        <h1> {s}₽</h1>
+        <h1> {s} ₽</h1>
         </div>
         <div className="test">
           <p>Ежемесячный платёж от </p>
-          <h1>{pay}₽</h1>
+          <h1>{pay} ₽</h1>
           </div>
       <Button 
        loading={loading}

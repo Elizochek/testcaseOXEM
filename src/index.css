@@ -1,22 +1,25 @@
-body {
-    font-family: 'Courier New', Courier, monospace;}
+/* body {
+    } */
 @font-face {
     font-family: 'Nekst';
-    src: local('Nekst Bold'),
+    src: local('Nekst-Bold'),
         url("./fonts/Nekst-Bold.woff2") format('woff2');
     font-style: normal;
   }
   @font-face {
     font-family: 'Nekst';
-    src: local('Nekst Black'),
+    src: local('Nekst-Black'),
         url("./fonts/Nekst-Black.woff2") format('woff2');
-    font-style: normal;}
+    font-style: normal;
+  font-weight: 900;
+line-height:48.6px;}
     @font-face {
-      font-family: 'Giroy';
-      src: local('Giroy-Regular'),
+      font-family: 'Gilroy';
+      src: local('Gilroy-Regular'),
           url("./fonts/Gilroy-Regular.woff2") format('woff2');
-      font-style: normal;}
-  
+      font-style: normal;
+    font-weight: 400;}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

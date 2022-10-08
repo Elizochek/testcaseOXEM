@@ -20,6 +20,7 @@ export function Input(props) {
     type="text"
     placeholder={props.placeholder}
     onChange={handleChange} 
+    disabled={props.disabled}
     />
         <input className='range'
         name={props.name}
@@ -29,8 +30,9 @@ export function Input(props) {
         type="range"
         value={num}
         onChange={handleChange} 
+        disabled={props.disabled}
             />
-        <div className="details"> {props.test} </div>
+        <div className='details'> {props.test} </div>
             </div>
     )
 }

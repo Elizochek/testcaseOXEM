@@ -1,40 +1,60 @@
 @import "./styles.scss";
 .App {
+  border:2px solid red;
   display: grid; 
   grid-template-rows: 120px;
   align-content:center;
   align-items: center;
   justify-items:stretch;
-  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-columns:1fr 1fr 1fr; 
   grid-column-gap: 30px;
   grid-row-gap: 30px;
   grid-template-areas: 
     "name name name"
     ". . ."
     ". . ."; 
-  width: 90vw;
+  width:90%;
   height:90vh;
-  margin:50px 30px;
+  margin:30px 50px;
     
-
-// @media screen and (max-width:$notebookmax){
-//   display:flex;
-//   flex-direction:row;
-//   flex-wrap:wrap;
-// }}
+@media screen and (min-width:$notebookmin) and (max-width:$notebookmax) {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-content:stretch;
+  row-gap:30px;
+  justify-content: space-between;
+  margin: 64px 30px;
+}
+}
 .name {
   grid-area:name;
-  font-family:"Nekst";
+  font-family:$h1style;
+  font-size: $h1size;
+  font-weight:900;
 
 }
 
-
 .test {
-  border:2px solid grey;
+  display:flex;
+  flex-direction: column;
+  padding-left:24px;
   min-width: 280px;
   height: 119px;
-  // @media screen and (max-width:$notebookmax){
-  //   width:45%
-  // }
+  @media screen and (min-width:$notebookmin) and (max-width:$notebookmax){
+    min-width:43%}
+  p {font-family: $pstyle;
+  font-size:$psize;
+  font-weight: 400;
+  color: #575757;}
+  h1 {
+    margin-top:0px;
+    font-family: $h1style;
+    font-size: $h1size;
+    font-weight: 900;
+    color:black;}
+
+  }
+ 
   
-  }}
+  
