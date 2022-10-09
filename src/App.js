@@ -5,8 +5,8 @@ import 'boxicons/css/boxicons.min.css';
 import './/App.scss';
 
 function App(){
-  const [price, setPrice]=useState("500000")
-  const [pay, setPay]=useState("50000")
+  const [price, setPrice]=useState("1000000")
+  const [pay, setPay]=useState(0.1*Number(price))
   const [liz, setLiz]=useState("1")
   const [loading, setLoading] = useState(false);
 
@@ -19,44 +19,60 @@ function handlePay (value){
 function handleLiz (value){
   setLiz(value)
 }
-function sum () {
-  return Number(price)+Number(pay)
+function monthPay() {
+  return Math.ceil((Number(price) - Number(pay)) * ((0.035 * Math.pow((1 + 0.035), Number(liz))) / (Math.pow((1 + 0.035), Number(liz)) - 1)))
 }
-const s = sum()
+const mPay = monthPay()
+function sum () {
+  return Math.ceil(Number(pay) + Number(liz) * Number(mPay))
+}
+const totalSum = sum()
+
 function percent () {
   return Math.ceil(Number(pay)/Number(price)*100)+"%"
 }
 const per = percent ()
 const enabled=
-Number(price)>500000 &&
-Number(pay)>50000 && Number(liz)>0;
+Number(price)>1000000 &&
+Number(pay)>100000 && Number(liz)>0;
 
 const buttontext= loading?" ": "Оставить заявку"
 
   return (
 
     <div className="App"> 
+    <style type="text/css">{`
+        @font-face {
+          font-family:'Nekst Black';
+          src: url(${require('./fonts/Nekst-Black.woff2')}) format('woff2');
+          @font-face {
+            font-family:'Gilroy';
+            src: url(${require('./fonts/Gilroy-Regular.woff2')}) format('woff2')
+
+        `}</style>
     <div className="name">Рассчитайте стоимость автомобиля в лизинг</div>
       <Input 
      name="Стоимость автомобиля" 
      type="range" 
-     min="500000" 
-     max="5000000" 
+     min="1000000" 
+     max="6000000" 
      onChange={handlePrice} 
-     step="10000" 
-     test="₽"
+     step="100000" 
+     test="&#8381;"
      placeholder={price}
-     disabled={loading}/>
+     disabled={loading}
+     theme={loading ? "disabled" : "nochange"}/>
       <Input 
       name="Первоначальный взнос" 
       type="range" 
-      min="50000" 
+      min={0.1*Number(price)}
       max={price} 
       onChange={handlePay} 
-      step="1000" 
+      step="10000" 
       test={per}
       placeholder={pay}
-      disabled={loading}/>
+      disabled={loading}
+      theme={loading ? "disabled" : " "}/>
       
       <Input 
       name="Срок лизинга" 
@@ -67,14 +83,15 @@ const buttontext= loading?" ": "Оставить заявку"
       step="1" 
       test="мес."
       placeholder={liz}
-      disabled={loading}/>
+      disabled={loading}
+      theme={loading ? "disabled" : "nochange"}/>
         <div className="test"> 
         <p> Сумма договора лизинга </p>
-        <h1> {s} ₽</h1>
+        <h1>{totalSum}&#8381;</h1>
         </div>
         <div className="test">
           <p>Ежемесячный платёж от </p>
-          <h1>{pay} ₽</h1>
+          <h1>{mPay}&#8381; </h1>
           </div>
       <Button 
        loading={loading}

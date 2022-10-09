@@ -1,5 +1,6 @@
 import './Input.scss'
 import {useState} from "react"
+import classNames from 'classnames'
 
 
 
@@ -10,6 +11,12 @@ export function Input(props) {
         props.onChange(event.currentTarget.value)
         setNum(event.currentTarget.value)
     }
+    const DetailsClass = classNames(
+        'details',
+        {'details__disabled': props.theme === 'disabled'},
+        {'details__nochange': props.theme === 'nochange'}
+        )
+
 
    
     return ( 
@@ -32,7 +39,7 @@ export function Input(props) {
         onChange={handleChange} 
         disabled={props.disabled}
             />
-        <div className='details'> {props.test} </div>
+        <div className={DetailsClass}> {props.test} </div>
             </div>
     )
 }

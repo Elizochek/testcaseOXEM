@@ -7,7 +7,7 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
     outline: 0;
-    max-width:90%;
+    max-width:320px;
     height: 68px;
     background: #FF9514;
     border:1px solid #FF9514 ;
@@ -47,4 +47,11 @@
     @media screen and (min-width:$notebookmin) and (max-width:$notebookmax){
         max-width:45%;
      }
+     @media screen and (min-width:$phonemin) and (max-width:$phonemax) {
+        min-width:88%;
+        font-size:22px;
+      }
+      @media screen and (min-width:$maxscreen) {
+        min-width: 427px;
+       }
 }
