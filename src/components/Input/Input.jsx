@@ -39,7 +39,8 @@ export function Input(props) {
         onChange={handleChange} 
         disabled={props.disabled}
             />
-        <div className={DetailsClass}> {props.test} </div>
+        <div className={DetailsClass}>{props.test}
+            </div>
             </div>
     )
 }

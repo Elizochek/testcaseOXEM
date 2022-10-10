@@ -1,5 +1,4 @@
 @import "./styles.scss";
-@import "./index.css";
 .App {
   border:2px solid red;
   display: grid; 
@@ -40,49 +39,12 @@
   flex-wrap: wrap;
   align-content:stretch;
   padding:20px;
-  row-gap:20px;
- 
-}
-}
-.name {
-  grid-area:name;
-  font-family:$h1style;
-  font-size: $h1size;
-  font-weight:900;
-  @media screen and (min-width:$phonemin) and (max-width:$phonemax) {
-    padding-left:30px;
-    font-size:34px;
-  }
-
-}
-
-.test {
+  row-gap:20px;}
+@media screen and (max-width:$minscreen) {
   display:flex;
-  flex-direction: column;
-  padding-left:24px;
-  width: 280px;
-  height: 119px;
-  @media screen and (min-width:$notebookmin) and (max-width:$notebookmax){
-    min-width:43%}
-    @media screen and (min-width:$phonemin) and (max-width:$phonemax) {
-      width:88%;
-      height:96px;
-    }
-  p {font-family: $pstyle;
-  font-size:$psize;
-  color: #575757;}
-  h1 {
-    margin: 0px;
-    font-family: $h1style;
-    font-size: $h1size;
-    font-weight:900;
-    color:black;
-    @media screen and (min-width:$phonemin) and (max-width:$phonemax) {
-      font-size:34px;
-    }}
-
-
-  }
- 
-  
-  
+  flex-direction:row;
+  flex-wrap: wrap;
+  align-content:stretch;
+  row-gap:10px;
+}
+}
