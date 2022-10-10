@@ -7,10 +7,10 @@ import { getData } from "../../rest";
 export function Calc() {
   const [price, setPrice] = useState(1000000);
   const [pay, setPay] = useState(0.1);
-  const [liz, setLiz] = useState(1);
+  const [month, setMonth] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  const enabled = price > 1000000 && pay > 0.1 && liz > 0;
+  const enabled = price > 1000000 && pay > 0.1 && month > 0;
   const buttontext = loading ? " " : "Оставить заявку";
 
   function handleSubmit() {
@@ -35,7 +35,7 @@ export function Calc() {
     setPay(value);
   }
   function handleLiz(value) {
-    setLiz(value);
+    setMonth(value);
   }
   function initialPay() {
     return Math.ceil(pay * price);
@@ -45,13 +45,13 @@ export function Calc() {
   function monthPay() {
     return Math.ceil(
       (price - iPay) *
-        ((0.035 * Math.pow(1 + 0.035, liz)) / (Math.pow(1 + 0.035, liz) - 1))
+        ((0.035 * Math.pow(1 + 0.035, month)) / (Math.pow(1 + 0.035, month) - 1))
     );
   }
   const mPay = monthPay();
 
   function sum() {
-    return Math.ceil(iPay + liz * mPay);
+    return Math.ceil(iPay + month * mPay);
   }
   const totalSum = sum();
 
@@ -91,7 +91,7 @@ export function Calc() {
         onChange={handleLiz}
         step={1}
         designation="мес."
-        placeholder={liz}
+        placeholder={month}
         disabled={loading}
         theme={loading ? "disabled" : "nochange"}
       />
