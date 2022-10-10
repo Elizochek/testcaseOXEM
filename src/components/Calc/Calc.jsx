@@ -11,18 +11,18 @@ export function Calc() {
   const [loading, setLoading] = useState(false);
 
   function handleSubmit(){
-    setLoading(true)
-    const data=getData({
-        "car_coast":price,
-        "initail_payment": 400000,
-        "initail_payment_percent": 10,
-        "lease_term": 24,
-        "total_sum": 5000000,
-        "monthly_payment_from": 30000
-      })
-      if(data.success===true) {setLoading(false)}
+    setLoading(!loading)}
+//     const data=getData({
+//         "car_coast":price,
+//         "initail_payment": 400000,
+//         "initail_payment_percent": 10,
+//         "lease_term": 24,
+//         "total_sum": 5000000,
+//         "monthly_payment_from": 30000
+//       })
+//       if(data.success===true) {setLoading(false)}
 
-  }
+//   }
 
   function handlePrice (value){
     setPrice(value)
