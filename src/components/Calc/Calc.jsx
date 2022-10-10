@@ -28,9 +28,8 @@ function sum () {
 const totalSum = sum()
 
 function percent () {
-//   return Math.ceil(Number(pay)/Number(price)*100)+"%"
-  return Math.ceil(Number(pay)/Number(price)*100)+"%"
-return 
+    const a = Math.ceil(Number(pay)/Number(price)*100)
+  return a+"%"
 }
 const per = percent ()
 
@@ -58,12 +57,12 @@ const buttontext= loading?" ": "Оставить заявку"
       <Input 
       name="Первоначальный взнос" 
       type="range" 
-      min={0.1*Number(price)}
-      max={0.6*Number(price)} 
+      min={0.1}
+      max={0.6} 
       onChange={handlePay} 
-      step="10" 
-      test={per}
-      placeholder={pay}
+      step={0.1}
+      test={(Number(pay)*100)+"%"}
+      placeholder={Number(pay)*Number(price)}
       disabled={loading}
       theme={loading ? "disabled" : " "}/>
       
