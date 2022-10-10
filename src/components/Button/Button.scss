@@ -1,57 +1,58 @@
 @import "/src/styles.scss";
 
 .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    outline: 0;
-    max-width:320px;
-    height: 68px;
-    background: #FF9514;
-    border:1px solid #FF9514 ;
-    border-radius: 40px;
-    color:white;
-    font-family:$h2style;
-    font-size:$h2size;
-    font-weight:900;
-    padding: 12px 24px;
-    &:hover {
-        background: #111111;
-        border:1px solid #111111;
-    }
-    &:disabled {
-        background:#FF9514;
-        border:1px solid #FF9514;
-        opacity:40%;
-    }
-    &:active {
-        background: #575757;
-        border:1px solid #575757;}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  outline: 0;
+  max-width: 320px;
+  height: 68px;
+  background: #ff9514;
+  border: 1px solid #ff9514;
+  border-radius: 40px;
+  color: white;
+  font-family: $h2style;
+  font-size: $h2size;
+  font-weight: 900;
+  padding: 12px 24px;
+  &:hover {
+    background: #111111;
+    border: 1px solid #111111;
+  }
+  &:disabled {
+    background: #ff9514;
+    border: 1px solid #ff9514;
+    opacity: 40%;
+  }
+  &:active {
+    background: #575757;
+    border: 1px solid #575757;
+  }
 
-    .spinner {
-        width: 0;
-        overflow: hidden;
-        transition: 0.3s ease-in-out;
-        opacity: 0;
-        visibility: hidden;
+  .spinner {
+    width: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
 
-        &.active {
-            width: 30px;
-            margin-right: 10px;
-            opacity: 1;
-            visibility: visible;
-        }
+    &.active {
+      width: 30px;
+      margin-right: 10px;
+      opacity: 1;
+      visibility: visible;
     }
-    @media screen and (min-width:$notebookmin) and (max-width:$notebookmax){
-        max-width:45%;
-     }
-     @media screen and (min-width:$phonemin) and (max-width:$phonemax) {
-        min-width:88%;
-        font-size:22px;
-      }
-      @media screen and (min-width:$maxscreen) {
-        min-width: 427px;
-       }
+  }
+  @media screen and (min-width: $notebookmin) and (max-width: $notebookmax) {
+    max-width: 45%;
+  }
+  @media screen and (min-width: $phonemin) and (max-width: $phonemax) {
+    min-width: 88%;
+    font-size: 22px;
+  }
+  @media screen and (min-width: $maxscreen) {
+    min-width: 427px;
+  }
 }
