@@ -46,8 +46,16 @@
   font-size: $h2size;
   font-family: $h2style;
   font-weight: 900;
+&::-webkit-outer-spin-button,
+&::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+&{-moz-appearance:textfield;
+}
 
-  &:active {
+  &:focus {
     border: 2px solid #f3f3f4;
     background: #ffffff;
   }
@@ -55,13 +63,7 @@
   &:disabled {
     opacity: 0.4;
   }
-
-  &::-webkit-input-placeholder {
-    color: black;
-  }
-  &::-moz-placeholder {
-    color: black;
-  }
+ 
   @media screen and (min-width: $phonemin) and (max-width: $phonemax) {
     font-size: 22px;
   }
@@ -84,7 +86,7 @@
   font-weight: 900;
 
   &__nochange {
-    background: #f3f3f4;
+    background: none;
   }
 
   &__disabled {
@@ -147,7 +149,7 @@
     height: 20px;
     -webkit-appearance: none;
     margin-top: -8px;
-    
+
     &:hover {
       width: 24px;
       height: 24px;

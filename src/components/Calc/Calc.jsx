@@ -6,11 +6,11 @@ import { getData } from "../../rest";
 
 export function Calc() {
   const [price, setPrice] = useState(1000000);
-  const [pay, setPay] = useState(0.1);
+  const [pay, setPay] = useState(0.1 * price);
   const [month, setMonth] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  const enabled = price > 1000000 && pay > 0.1 && month > 0;
+  const enabled = price > 1000000 && pay > 100000 && month > 0;
   const buttontext = loading ? " " : "Оставить заявку";
 
   function handleSubmit() {
@@ -18,11 +18,11 @@ export function Calc() {
   }
   //     const data=getData({
   //         "car_coast":price,
-  //         "initail_payment": 400000,
-  //         "initail_payment_percent": 10,
-  //         "lease_term": 24,
-  //         "total_sum": 5000000,
-  //         "monthly_payment_from": 30000
+  //         "initail_payment":pay,
+  //         "initail_payment_percent": per,
+  //         "lease_term": month,
+  //         "total_sum": totalSum,
+  //         "monthly_payment_from": mPay
   //       })
   //       if(data.success===true) {setLoading(false)}
 
@@ -34,26 +34,28 @@ export function Calc() {
   function handlePay(value) {
     setPay(value);
   }
-  function handleLiz(value) {
+  function handleMonth(value) {
     setMonth(value);
   }
-  function initialPay() {
-    return Math.ceil(pay * price);
-  }
-  const iPay = initialPay();
 
   function monthPay() {
     return Math.ceil(
-      (price - iPay) *
-        ((0.035 * Math.pow(1 + 0.035, month)) / (Math.pow(1 + 0.035, month) - 1))
+      (price - pay) *
+        ((0.035 * Math.pow(1 + 0.035, month)) /
+          (Math.pow(1 + 0.035, month) - 1))
     );
   }
   const mPay = monthPay();
 
   function sum() {
-    return Math.ceil(iPay + month * mPay);
+    return Math.ceil(Number(month)*Number(mPay)+Number(pay));
   }
   const totalSum = sum();
+
+  function persent() {
+    return Math.ceil(pay/price*100)
+  }
+  const per=persent()
 
   return (
     <>
@@ -61,37 +63,41 @@ export function Calc() {
       <Input
         name="Стоимость автомобиля"
         type="range"
+        minValue={1000000}
+        maxValue={6000000}
         min={1000000}
         max={6000000}
         onChange={handlePrice}
         step={100000}
         designation="&#8381;"
-        placeholder={price}
+        defoultValue={price}
         disabled={loading}
         theme={loading ? "disabled" : "nochange"}
       />
       <Input
         name="Первоначальный взнос"
-        type="range"
-        min={0.1}
-        max={0.6}
+        minValue={0.1 * price}
+        maxValue={0.6*price}
+        defoultValue={0.1 * price}
+        min={0.1 * price}
+        max={0.6 * price}
         onChange={handlePay}
-        step={0.01}
-        designation={Math.ceil(pay * 100) + "%"}
-        placeholder={iPay}
+        step={0.01 * price}
+        designation={per + "%"}
         disabled={loading}
         theme={loading ? "disabled" : " "}
       />
 
       <Input
+        defoultValue={month}
         name="Срок лизинга"
-        type="range"
+        minValue={1}
+        maxValue={60}
         min={1}
         max={60}
-        onChange={handleLiz}
+        onChange={handleMonth}
         step={1}
         designation="мес."
-        placeholder={month}
         disabled={loading}
         theme={loading ? "disabled" : "nochange"}
       />
