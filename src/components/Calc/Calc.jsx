@@ -14,19 +14,17 @@ export function Calc() {
   const buttontext = loading ? " " : "Оставить заявку";
 
   function handleSubmit() {
-    setLoading(!loading);
-  }
-  //     const data=getData({
-  //         "car_coast":price,
-  //         "initail_payment":pay,
-  //         "initail_payment_percent": per,
-  //         "lease_term": month,
-  //         "total_sum": totalSum,
-  //         "monthly_payment_from": mPay
-  //       })
-  //       if(data.success===true) {setLoading(false)}
-
-  //   }
+    setLoading(true);
+      const data=getData({
+          "car_coast":price,
+          "initail_payment":pay,
+          "initail_payment_percent": per,
+          "lease_term": month,
+          "total_sum": totalSum,
+          "monthly_payment_from": mPay
+        })
+        if(data.success===true) {setLoading(false)}
+}
 
   function handlePrice(value) {
     setPrice(value);
@@ -65,12 +63,12 @@ export function Calc() {
         type="range"
         minValue={1000000}
         maxValue={6000000}
+        defaultValue={price}
         min={1000000}
         max={6000000}
         onChange={handlePrice}
         step={100000}
         designation="&#8381;"
-        defoultValue={price}
         disabled={loading}
         theme={loading ? "disabled" : "nochange"}
       />
@@ -78,7 +76,7 @@ export function Calc() {
         name="Первоначальный взнос"
         minValue={0.1 * price}
         maxValue={0.6*price}
-        defoultValue={0.1 * price}
+        defaultValue={0.1 * price}
         min={0.1 * price}
         max={0.6 * price}
         onChange={handlePay}
@@ -89,10 +87,10 @@ export function Calc() {
       />
 
       <Input
-        defoultValue={month}
         name="Срок лизинга"
         minValue={1}
         maxValue={60}
+        defaultValue={month}
         min={1}
         max={60}
         onChange={handleMonth}

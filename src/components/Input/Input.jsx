@@ -3,7 +3,7 @@ import { useState } from "react";
 import classNames from "classnames";
 
 export function Input(props) {
-  const [num, setNum] = useState(props.defoultValue);
+  const [num, setNum] = useState(props.defaultValue);
 
   function handleChange(event) {
     validate(event.currentTarget.value);
